@@ -1,10 +1,7 @@
 package br.com.banco.service;
 
-import br.com.banco.model.conta.Conta;
 import br.com.banco.model.transferencia.Transferencia;
-import br.com.banco.repository.ContaRepository;
 import br.com.banco.repository.TransferenciaRepository;
-import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,7 +24,6 @@ public class TransferenciaService {
             final String nomeOperadorTransacao
     ) {
         if (dataInicial != null && dataFinal != null && !isNullOrEmpty(nomeOperadorTransacao)) {
-            // Período de tempo e operador
             return transferenciaRepository.findByDataTransferenciaBetweenAndNomeOperadorTransacao(
                     dataInicial,
                     dataFinal,
@@ -41,4 +37,5 @@ public class TransferenciaService {
             return transferenciaRepository.findAll();
         }
     }
+
 }
